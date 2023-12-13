@@ -1,0 +1,15 @@
+[init]
+    defaultBranch = main
+
+[alias]
+    co = checkout
+    c = commit 
+    ca = commit --amend --no-edit
+    b = branch
+    ls = log --oneline
+
+[user]
+	email = ben@napier.xyz
+	name = Ben Napier
+[core]
+	editor = nvim
