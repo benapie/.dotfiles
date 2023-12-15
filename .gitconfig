@@ -13,3 +13,5 @@
 	name = Ben Napier
 [core]
 	editor = nvim
+[credential]
+	helper = store
