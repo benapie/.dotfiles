@@ -29,6 +29,14 @@ gitstatus_stop 'MY' && gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY'
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd set_prompt
 
+# start tmux if:
+# 1. we are a "normal" process (e.g. not owned by tmux, vscode, ..)
+# 2. are not sourcing ~/.zshrc
+parent_process_name=$(cat /proc/$PPID/cmdline | rev | rev)
+if [ $parent_process_name = "/init" ] && [ $ZSH_EVAL_CONTEXT = "file" ]; then
+    tmux
+fi
+
 alias reload="source ~/.zshrc"
 alias v="nvim"
 alias vim="nvim"
