@@ -24,12 +24,7 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },
         }
     }
-
-
     use 'gelguy/wilder.nvim'
-
-    use 'ellisonleao/gruvbox.nvim'
-
     use 'folke/zen-mode.nvim'
 
     use {
@@ -39,17 +34,17 @@ return require('packer').startup(function(use)
             ts_update()
         end,
     }
-
     use 'theprimeagen/harpoon'
-
     use {
         'folke/trouble.nvim',
         opts = {
-            icon = false
+            icon = true
         },
     }
-
     use 'tpope/vim-fugitive'
-
-    use 'TheNiteCoder/mountaineer.vim'
+    use 'ayu-theme/ayu-vim'
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 end);
