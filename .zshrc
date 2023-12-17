@@ -1,56 +1,3 @@
-autoload -U colors zsh/terminfo
-colors
-source ~/gitstatus/gitstatus.plugin.zsh
-
-function set_gruv_prompt() {
-    icon_section="%K{241}  " 
-    path_section="%K{214}%F{241}%F{237} %~ "
-    git_section="%k%F{214}"
-
-    if gitstatus_query MY && [[ $VCS_STATUS_RESULT == ok-sync ]]; then
-        git_branch=${${VCS_STATUS_LOCAL_BRANCH:-@${VCS_STATUS_COMMIT}}//\%/%%}
-        git_indicator_label=""
-        
-        (( VCS_STATUS_NUM_STAGED    )) && git_indicator_label='✓'
-        (( VCS_STATUS_NUM_UNSTAGED  )) && git_indicator_label='✗'
-        (( VCS_STATUS_NUM_UNTRACKED )) && git_indicator_label='?'
-
-        git_icon=""
-        [ ! -z $git_indicator_label ] &&  git_icon=" ${git_indicator_label}"
-
-        git_section="%K{248}%F{214}%F{237}  ${git_branch}${git_icon} %k%F{248}"
-    fi
-
-    PROMPT="%B${icon_section}${path_section}${git_section}%k%b%f "
-}
-
-function set_classic_prompt() {
-    separator="%F{241}%f"
-    icon_label="  "
-    path_label="%F{248} %~ %f"
-    git_section=""
-
-    if gitstatus_query MY && [[ $VCS_STATUS_RESULT == ok-sync ]]; then
-        git_branch=${${VCS_STATUS_LOCAL_BRANCH:-@${VCS_STATUS_COMMIT}}//\%/%%}
-        git_indicator_label=""
-        
-        (( VCS_STATUS_NUM_STAGED    )) && git_indicator_label='✓'
-        (( VCS_STATUS_NUM_UNSTAGED  )) && git_indicator_label='✗'
-        (( VCS_STATUS_NUM_UNTRACKED )) && git_indicator_label='?'
-
-        git_icon=""
-        [ ! -z $git_indicator_label ] &&  git_icon=" ${git_indicator_label}"
-
-        git_section="${separator}%F{243}  ${git_branch}${git_icon} %f"
-    fi
-
-    PROMPT="%B%K{237}${icon_label}${separator}${path_label}${git_section}%k%F{237}%b%f "
-}
-
-gitstatus_stop 'MY' && gitstatus_start -s -1 -u -1 -c -1 -d -1 'MY'
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd set_classic_prompt
-
 # start tmux if:
 # 1. we are a "normal" process (e.g. not owned by tmux, vscode, ..)
 # 2. are not sourcing ~/.zshrc
@@ -59,7 +6,16 @@ if [ $parent_process_name = "/init" ] && [ $ZSH_EVAL_CONTEXT = "file" ]; then
     tmux
 fi
 
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+source ~/.dotfiles/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
+
+
 alias reload="source ~/.zshrc"
 alias v="nvim"
 alias vim="nvim"
 alias g="git"
+
