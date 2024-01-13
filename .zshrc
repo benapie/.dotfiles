@@ -18,4 +18,5 @@ alias reload="source ~/.zshrc"
 alias v="nvim"
 alias vim="nvim"
 alias g="git"
+alias pn="pnpm"
 
