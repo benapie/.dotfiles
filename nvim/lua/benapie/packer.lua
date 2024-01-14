@@ -49,4 +49,6 @@ return require('packer').startup(function(use)
     }
 
     use 'nvimtools/none-ls.nvim'
+
+    use 'axelvc/template-string.nvim'
 end);
