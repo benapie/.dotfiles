@@ -20,3 +20,7 @@ alias vim="nvim"
 alias g="git"
 alias pn="pnpm"
 
+
+if [[ $(grep -i Microsoft /proc/version) ]]; then
+    export BROWSER=/usr/bin/wslview
+fi
