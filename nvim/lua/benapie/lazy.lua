@@ -46,7 +46,7 @@ require("lazy").setup({
 	{ "folke/trouble.nvim", opts = { icon = true } },
 
 	"tpope/vim-fugitive",
-	"ayu-theme/ayu-vim",
+	"embark-theme/vim",
 
 	{
 		"windwp/nvim-autopairs",
