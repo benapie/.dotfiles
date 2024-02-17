@@ -45,6 +45,11 @@ require("mason-lspconfig").setup({
 			local lua_opts = lsp_zero.nvim_lua_ls()
 			require("lspconfig").lua_ls.setup(lua_opts)
 		end,
+		eslint = function()
+			require("lspconfig").eslint.setup({
+				--cmd = { "echo", "'Hello world'" },
+			})
+		end,
 	},
 })
 
