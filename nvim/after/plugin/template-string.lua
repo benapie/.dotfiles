@@ -1,1 +1,1 @@
-require('template-string').setup({})
+require("template-string").setup({})
