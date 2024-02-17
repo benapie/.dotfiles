@@ -13,6 +13,10 @@ fi
 source ~/.dotfiles/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
 
+# if using WSL
+if [[ $(grep -i Microsoft /proc/version) ]]; then
+    export BROWSER=/usr/bin/wslview
+fi
 
 alias reload="source ~/.zshrc"
 alias v="nvim"
@@ -21,6 +25,3 @@ alias g="git"
 alias pn="pnpm"
 
 
-if [[ $(grep -i Microsoft /proc/version) ]]; then
-    export BROWSER=/usr/bin/wslview
-fi
