@@ -61,7 +61,3 @@ style = "Regular"
 chars = "\u0000"
 key = "Space"
 mods = "Control"
-
-[shell]
-program = "debian"
-
