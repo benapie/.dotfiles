@@ -58,4 +58,12 @@ require("lazy").setup({
 	"axelvc/template-string.nvim",
 
 	"mhartington/formatter.nvim",
+
+	{
+		dir = "~/.dotfiles/amzn/nvim",
+		name = "amzn",
+		config = function()
+			require("amzn")
+		end,
+	},
 })

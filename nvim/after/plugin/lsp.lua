@@ -36,6 +36,8 @@ lsp_zero.on_attach(function(_, bufnr)
 	end, opts)
 end)
 
+local amzn = require("amzn")
+
 require("mason").setup({})
 require("mason-lspconfig").setup({
 	ensure_installed = { "tsserver", "rust_analyzer" },
@@ -47,7 +49,7 @@ require("mason-lspconfig").setup({
 		end,
 		eslint = function()
 			require("lspconfig").eslint.setup({
-				--cmd = { "echo", "'Hello world'" },
+				settings = amzn.get_settings(vim.fn.expand("%:p")),
 			})
 		end,
 	},

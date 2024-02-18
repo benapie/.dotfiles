@@ -2,5 +2,5 @@
 	path = powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k
 [submodule "amazon"]
-	path = amazon
+	path = amzn
 	url = https://github.com/benapie/.dotfiles-amazon
