@@ -66,4 +66,6 @@ require("lazy").setup({
 			require("amzn")
 		end,
 	},
+
+	"rcarriga/nvim-notify",
 })
