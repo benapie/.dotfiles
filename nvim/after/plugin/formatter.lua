@@ -21,5 +21,6 @@ require("formatter").setup({
 		typescriptreact = {
 			prettier,
 		},
+		toml = { require("formatter.filetypes.toml").taplo },
 	},
 })
