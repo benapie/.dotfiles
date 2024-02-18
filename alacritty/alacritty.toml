@@ -1,0 +1,67 @@
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[colors.bright]
+black = "0x585273"
+blue = "0x78a8ff"
+cyan = "0x63f2f1"
+green = "0x7fe9c3"
+magenta = "0x7676ff"
+red = "0xf02e6e"
+white = "0x8a889d"
+yellow = "0xf2b482"
+
+[colors.cursor]
+cursor = "0xa1efd3"
+text = "0x1e1c31"
+
+[colors.normal]
+black = "0x1e1c31"
+blue = "0x91ddff"
+cyan = "0xabf8f7"
+green = "0xa1efd3"
+magenta = "0xd4c000"
+red = "0xf48fb1"
+white = "0xcbe3e7"
+yellow = "0xffe6b3"
+
+[colors.primary]
+background = "0x1e1c31"
+foreground = "0xcbe3e7"
+
+[cursor]
+blink_interval = 200
+thickness = 0.15
+unfocused_hollow = true
+
+[cursor.style]
+blinking = "always"
+shape = "Beam"
+
+[font]
+size = 12
+
+[font.bold]
+family = "MonaspiceKr Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "MonaspiceKr Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "MonaspiceKr Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "MonaspiceKr Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+chars = "\u0000"
+key = "Space"
+mods = "Control"
+
+[shell]
+program = "debian"
+
