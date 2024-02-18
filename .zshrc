@@ -24,4 +24,6 @@ alias vim="nvim"
 alias g="git"
 alias pn="pnpm"
 
-
+if [[ $(grep -i amzn2int /proc/version) ]]; then
+    source ~/.dotfiles/amzn/.zshrc
+fi
