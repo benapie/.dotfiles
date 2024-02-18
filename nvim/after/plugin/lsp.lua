@@ -49,7 +49,7 @@ require("mason-lspconfig").setup({
 		end,
 		eslint = function()
 			require("lspconfig").eslint.setup({
-				settings = amzn.get_settings(vim.fn.expand("%:p")),
+				settings = amzn.get_eslint_settings(vim.fn.expand("%:p")),
 			})
 		end,
 	},
