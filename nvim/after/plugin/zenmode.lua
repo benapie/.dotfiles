@@ -26,10 +26,12 @@ end)
 vim.keymap.set("n", "<leader>lrc", function()
 	zen.setup({
 		window = {
-			width = 120,
+			width = 126,
 			height = 0.9,
 		},
 	})
+	vim.opt.colorcolumn = "120"
+
 	if zen_open == true then
 		zen.toggle()
 		zen.toggle()
