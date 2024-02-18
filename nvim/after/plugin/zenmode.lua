@@ -1,39 +1,23 @@
 local zen = require("zen-mode")
+local amzn = require("amzn")
 
-local zen_open = false
+local function get_col_width()
+	local override = amzn.get_col_width_override()
 
-function create_zen_config(width)
-	return {
-		window = {
-			width = width,
-			height = 0.9,
-		},
-		on_open = function()
-			zen_open = true
-		end,
-		on_close = function()
-			zen_open = false
-		end,
-	}
+	if override ~= nil then
+		return override + 6
+	else
+		return 86
+	end
 end
 
-zen.setup(create_zen_config(86))
+zen.setup({
+	window = {
+		width = get_col_width(),
+		height = 0.9,
+	},
+})
 
 vim.keymap.set("n", "<leader>zz", function()
 	zen.toggle()
-end)
-
-vim.keymap.set("n", "<leader>lrc", function()
-	zen.setup({
-		window = {
-			width = 126,
-			height = 0.9,
-		},
-	})
-	vim.opt.colorcolumn = "120"
-
-	if zen_open == true then
-		zen.toggle()
-		zen.toggle()
-	end
 end)
