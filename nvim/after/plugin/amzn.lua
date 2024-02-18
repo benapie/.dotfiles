@@ -6,3 +6,6 @@ if amzn_col_width_override ~= nil then
 else
     vim.opt.colorcolumn = "80"
 end
+
+vim.keymap.set("n", "<leader>og", amzn.get_brazil_remote_code_url)
+vim.keymap.set("v", "<leader>og", amzn.get_brazil_remote_code_url)
