@@ -1,8 +1,8 @@
 if [[ $(uname) == *"Darwin"* ]]; then # if amzn-mac
     source ~/.dotfiles/amzn/.zshrc
-elif [ $(grep -i amzn2int /proc/version) ]; then # if amzn-devbox
+elif [[ $(grep -i amzn2int /proc/version) ]]; then # if amzn-devbox
     source ~/.dotfiles/amzn/.zshrc
-elif [ $(grep -i Microsoft /proc/version) ]; then # if wsl
+elif [[ $(grep -i Microsoft /proc/version) ]]; then # if wsl
     export BROWSER=/usr/bin/wslview
 fi
 
