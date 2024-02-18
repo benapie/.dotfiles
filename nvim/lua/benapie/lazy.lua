@@ -12,6 +12,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{
+		"rcarriga/nvim-notify",
+		config = function()
+			vim.notify = require("notify")
+		end,
+	},
+
 	"theprimeagen/harpoon",
 
 	{
@@ -66,6 +73,4 @@ require("lazy").setup({
 			require("amzn")
 		end,
 	},
-
-	"rcarriga/nvim-notify",
 })
