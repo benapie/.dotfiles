@@ -9,6 +9,9 @@ end
 
 local function get_remote_code_url()
     local url = amzn.get_brazil_remote_code_url()
+    if not url then
+        return nil
+    end
     vim.fn.setreg("+", url)
     vim.notify("Copied \n" .. url .. "\nto the clipboard.")
 end
