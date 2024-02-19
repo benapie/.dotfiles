@@ -7,5 +7,11 @@ else
     vim.opt.colorcolumn = "80"
 end
 
-vim.keymap.set("n", "<leader>og", amzn.get_brazil_remote_code_url)
-vim.keymap.set("v", "<leader>og", amzn.get_brazil_remote_code_url)
+local function get_remote_code_url()
+    local url = amzn.get_brazil_remote_code_url()
+    vim.fn.setreg("+", url)
+    vim.notify("Copied \n" .. url .. "\nto the clipboard.")
+end
+
+vim.keymap.set("n", "<leader>og", get_remote_code_url)
+vim.keymap.set("v", "<leader>og", get_remote_code_url)
