@@ -21,6 +21,7 @@ require("formatter").setup({
         typescriptreact = {
             prettier,
         },
+        json = { prettier },
         toml = { require("formatter.filetypes.toml").taplo },
         zsh = { require("formatter.filetypes.zsh").beautysh },
     },
