@@ -70,8 +70,5 @@ require("lazy").setup({
     {
         dir = "~/.dotfiles/amzn/nvim",
         name = "amzn",
-        config = function()
-            require("amzn")
-        end,
     },
 })
