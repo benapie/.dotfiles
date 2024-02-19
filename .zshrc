@@ -1,6 +1,6 @@
 autostart_tmux_linux () {
     if [ -z "$TMUX" ] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
-        tmux
+        tmux attach -t TMUX || tmux new -s TMUX
     fi
 }
 
