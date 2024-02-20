@@ -4,14 +4,20 @@ autostart_tmux_linux () {
     fi
 }
 
+enable_git_completion_linux() {
+    autoload -Uz compinit && compinit
+}
+
 if [[ $(uname) == *"Darwin"* ]]; then # if amzn-mac
     source ~/.dotfiles/amzn/.zshrc
 elif [[ $(grep -i amzn2int /proc/version) ]]; then # if amzn-devbox
     source ~/.dotfiles/amzn/.zshrc
     autostart_tmux_linux
+    enable_git_completion_linux
 elif [[ $(grep -i Microsoft /proc/version) ]]; then # if wsl
     export BROWSER=/usr/bin/wslview
     autostart_tmux_linux
+    enable_git_completion_linux
 fi
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
