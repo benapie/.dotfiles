@@ -71,4 +71,6 @@ require("lazy").setup({
         dir = "~/.dotfiles/amzn/nvim",
         name = "amzn",
     },
+
+    "sindrets/diffview.nvim",
 })
