@@ -24,5 +24,6 @@ require("formatter").setup({
         json = { prettier },
         toml = { require("formatter.filetypes.toml").taplo },
         zsh = { require("formatter.filetypes.zsh").beautysh },
+        yaml = { prettier },
     },
 })
