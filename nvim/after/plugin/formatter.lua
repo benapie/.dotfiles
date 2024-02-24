@@ -13,7 +13,7 @@ end
 
 require("formatter").setup({
     logging = true,
-    log_level = vim.log.levels.WARN,
+    log_level = vim.log.levels.DEBUG,
     filetype = {
         lua = { require("formatter.filetypes.lua").stylua },
         javascript = { prettier },
@@ -22,6 +22,7 @@ require("formatter").setup({
             prettier,
         },
         json = { prettier },
+        jsonc = { prettier },
         toml = { require("formatter.filetypes.toml").taplo },
         zsh = { require("formatter.filetypes.zsh").beautysh },
         yaml = { prettier },
