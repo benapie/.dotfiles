@@ -13,7 +13,7 @@ end
 
 require("formatter").setup({
     logging = true,
-    log_level = vim.log.levels.DEBUG,
+    log_level = vim.log.levels.WARN,
     filetype = {
         lua = { require("formatter.filetypes.lua").stylua },
         javascript = { prettier },
