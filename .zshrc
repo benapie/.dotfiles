@@ -34,3 +34,10 @@ alias g="git"
 alias pn="pnpm"
 
 
+
+# bun completions
+[ -s "/home/benapie/.bun/_bun" ] && source "/home/benapie/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

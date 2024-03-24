@@ -73,4 +73,8 @@ require("lazy").setup({
     },
 
     "sindrets/diffview.nvim",
+
+    "windwp/nvim-ts-autotag",
+
+    "nvim-tree/nvim-web-devicons",
 })
