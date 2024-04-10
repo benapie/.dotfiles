@@ -27,5 +27,6 @@ require("formatter").setup({
         zsh = { require("formatter.filetypes.zsh").beautysh },
         yaml = { prettier },
         html = { prettier },
+        rust = { require("formatter.filetypes.rust").rustfmt },
     },
 })
