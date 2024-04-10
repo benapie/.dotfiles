@@ -26,5 +26,6 @@ require("formatter").setup({
         toml = { require("formatter.filetypes.toml").taplo },
         zsh = { require("formatter.filetypes.zsh").beautysh },
         yaml = { prettier },
+        html = { prettier },
     },
 })
