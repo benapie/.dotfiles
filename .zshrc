@@ -14,10 +14,14 @@ elif [[ $(grep -i amzn2int /proc/version) ]]; then # if amzn-devbox
     source ~/.dotfiles/amzn/.zshrc
     autostart_tmux_linux
     enable_git_completion_linux
+    # if you wish to use IMDS set AWS_EC2_METADATA_DISABLED=false
+    export AWS_EC2_METADATA_DISABLED=true
 elif [[ $(grep -i Microsoft /proc/version) ]]; then # if wsl
     export BROWSER=/usr/bin/wslview
     autostart_tmux_linux
     enable_git_completion_linux
+    export ANDROID_HOME=/mnt/c/Users/napie/AppData/Local/Android/Sdk
+    export WSLENV=ANDROID_HOME/p
 fi
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -41,8 +45,4 @@ alias pn="pnpm"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# if you wish to use IMDS set AWS_EC2_METADATA_DISABLED=false
-
-export AWS_EC2_METADATA_DISABLED=true
 
