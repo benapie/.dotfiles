@@ -1,4 +1,4 @@
-autostart_tmux_linux () {
+autostart_tmux () {
     if [ -z "$TMUX" ] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
         tmux attach -t TMUX || tmux new -s TMUX
     fi
@@ -12,13 +12,13 @@ if [[ $(uname) == *"Darwin"* ]]; then # if amzn-mac
     source ~/.dotfiles/amzn/.zshrc
 elif [[ $(grep -i amzn2int /proc/version) ]]; then # if amzn-devbox
     source ~/.dotfiles/amzn/.zshrc
-    autostart_tmux_linux
+    autostart_tmux
     enable_git_completion_linux
     # if you wish to use IMDS set AWS_EC2_METADATA_DISABLED=false
     export AWS_EC2_METADATA_DISABLED=true
 elif [[ $(grep -i Microsoft /proc/version) ]]; then # if wsl
     export BROWSER=/usr/bin/wslview
-    autostart_tmux_linux
+    autostart_tmux
     enable_git_completion_linux
     export ANDROID_HOME=/mnt/c/Users/napie/AppData/Local/Android/Sdk
     export WSLENV=ANDROID_HOME/p
@@ -33,7 +33,6 @@ source ~/.dotfiles/powerlevel10k/powerlevel10k.zsh-theme
 
 alias reload="source ~/.zshrc"
 alias v="nvim"
-alias vim="nvim"
 alias g="git"
 alias pn="pnpm"
 
@@ -44,5 +43,5 @@ alias pn="pnpm"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+path+="$BUN_INSTALL/bin"
 

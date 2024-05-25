@@ -21,10 +21,27 @@ require("lazy").setup({
 
     "theprimeagen/harpoon",
 
+    "nvim-lua/plenary.nvim",
+
     {
-        "nvim-telescope/telescope.nvim",
-        version = "0.1.5",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        "utilyre/barbecue.nvim",
+        name = "barbecue",
+        version = "*",
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        opts = {
+            attach_navic = false,
+            show_navic = false,
+        },
+    },
+
+    { "junegunn/fzf", build = "./install --bin" },
+    {
+        "ibhagwan/fzf-lua",
+        -- optional for icon support
+        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
     {
