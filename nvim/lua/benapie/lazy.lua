@@ -61,7 +61,7 @@ require("lazy").setup({
             "L3MON4D3/LuaSnip",
         },
     },
-    "gelguy/wilder.nvim", -- better wildmenu
+    --"gelguy/wilder.nvim", -- better wildmenu
     "folke/zen-mode.nvim",
 
     {
@@ -110,4 +110,47 @@ require("lazy").setup({
     "windwp/nvim-ts-autotag",
 
     "nvim-tree/nvim-web-devicons",
+
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- add any options here
+        },
+        dependencies = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            "rcarriga/nvim-notify",
+        },
+    },
+
+    {
+        "hrsh7th/cmp-cmdline",
+        config = function()
+            local cmp = require("cmp")
+            cmp.setup.cmdline("/", {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = "buffer" },
+                },
+            })
+
+            cmp.setup.cmdline(":", {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({
+                    { name = "path" },
+                }, {
+                    {
+                        name = "cmdline",
+                        option = {
+                            ignore_cmds = { "Man", "!" },
+                        },
+                    },
+                }),
+            })
+        end,
+    },
 })
