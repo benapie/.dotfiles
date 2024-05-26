@@ -31,10 +31,6 @@ require("lazy").setup({
             "SmiteshP/nvim-navic",
             "nvim-tree/nvim-web-devicons", -- optional dependency
         },
-        opts = {
-            attach_navic = false,
-            show_navic = false,
-        },
     },
 
     { "junegunn/fzf", build = "./install --bin" },
