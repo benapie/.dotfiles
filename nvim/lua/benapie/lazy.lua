@@ -19,18 +19,27 @@ require("lazy").setup({
         end,
     },
 
-    "theprimeagen/harpoon",
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
+
+    {
+        "letieu/harpoon-lualine",
+        dependencies = {
+            {
+                "ThePrimeagen/harpoon",
+                branch = "harpoon2",
+            },
+        },
+    },
 
     "nvim-lua/plenary.nvim",
 
     {
-        "utilyre/barbecue.nvim",
-        name = "barbecue",
-        version = "*",
-        dependencies = {
-            "SmiteshP/nvim-navic",
-            "nvim-tree/nvim-web-devicons", -- optional dependency
-        },
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
     { "junegunn/fzf", build = "./install --bin" },
@@ -52,7 +61,7 @@ require("lazy").setup({
             "L3MON4D3/LuaSnip",
         },
     },
-    "gelguy/wilder.nvim", -- better wildmeun
+    "gelguy/wilder.nvim", -- better wildmenu
     "folke/zen-mode.nvim",
 
     {
@@ -67,7 +76,18 @@ require("lazy").setup({
     { "folke/trouble.nvim", opts = { icon = true } },
 
     "tpope/vim-fugitive",
-    "embark-theme/vim",
+
+    {
+        "projekt0n/github-nvim-theme",
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            require("github-theme").setup({})
+
+            vim.o.background = "dark"
+            vim.cmd("colorscheme github_dark_default")
+        end,
+    },
 
     {
         "windwp/nvim-autopairs",
