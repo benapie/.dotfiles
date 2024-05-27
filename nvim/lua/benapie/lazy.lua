@@ -125,6 +125,13 @@ require("lazy").setup({
             --   If not available, we use `mini` as the fallback
             "rcarriga/nvim-notify",
         },
+        config = function()
+            local noice = require("noice")
+            noice.setup({
+                cmdline = { enabled = false },
+                messages = { enabled = false },
+            })
+        end,
     },
 
     {
