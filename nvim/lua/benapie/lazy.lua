@@ -55,7 +55,10 @@ require("lazy").setup({
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "neovim/nvim-lspconfig", -- lsp support
+            {
+                "neovim/nvim-lspconfig",
+                version = "*", -- due to eslint bug: https://github.com/LazyVim/LazyVim/issues/3384
+            },
             "hrsh7th/nvim-cmp", -- autocompletion
             "hrsh7th/cmp-nvim-lsp",
             "L3MON4D3/LuaSnip",
