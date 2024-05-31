@@ -127,10 +127,11 @@ require("lazy").setup({
         },
         config = function()
             local noice = require("noice")
-            noice.setup({
-                cmdline = { enabled = false },
-                messages = { enabled = false },
-            })
+            noice.setup({})
+            --    noice.setup({
+            --        cmdline = { enabled = false },
+            --        messages = { enabled = false },
+            --    })
         end,
     },
 

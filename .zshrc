@@ -11,6 +11,7 @@ enable_git_completion_linux() {
 if [[ $(uname) == *"Darwin"* ]]; then # if amzn-mac
     source ~/.dotfiles/amzn/.zshrc
     autostart_tmux
+    enable_git_completion_linux
 elif [[ $(grep -i amzn2int /proc/version) ]]; then # if amzn-devbox
     source ~/.dotfiles/amzn/.zshrc
     autostart_tmux
