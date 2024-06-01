@@ -76,7 +76,22 @@ require("lazy").setup({
         end,
     },
 
-    { "folke/trouble.nvim", opts = { icon = true } },
+    {
+        "folke/trouble.nvim",
+        opts = { icon = true },
+        keys = {
+            {
+                "<leader>xw",
+                "<cmd>Trouble diagnostics toggle<cr>",
+                desc = "Diagnostics (Trouble)",
+            },
+            {
+                "<leader>xd",
+                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+                desc = "Buffer Diagnostics (Trouble)",
+            },
+        },
+    },
 
     "tpope/vim-fugitive",
 
