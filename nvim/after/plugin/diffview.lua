@@ -15,3 +15,11 @@ vim.keymap.set("n", "<leader>dv", function()
         vim.cmd("DiffviewClose")
     end
 end)
+
+vim.keymap.set("n", "<leader>dh", function()
+    if next(require("diffview.lib").views) == nil then
+        vim.cmd("DiffviewOpen HEAD^")
+    else
+        vim.cmd("DiffviewClose")
+    end
+end)
