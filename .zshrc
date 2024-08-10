@@ -24,6 +24,14 @@ elif [[ $(grep -i Microsoft /proc/version) ]]; then # if wsl
     enable_git_completion_linux
     export ANDROID_HOME=/mnt/c/Users/napie/AppData/Local/Android/Sdk
     export WSLENV=ANDROID_HOME/p
+
+    # pnpm
+    export PNPM_HOME="/home/benapie/.local/share/pnpm"
+    case ":$PATH:" in
+        *":$PNPM_HOME:"*) ;;
+        *) export PATH="$PNPM_HOME:$PATH" ;;
+    esac
+    # pnpm end
 fi
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then

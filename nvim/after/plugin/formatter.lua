@@ -29,5 +29,6 @@ require("formatter").setup({
         html = { prettier },
         rust = { require("formatter.filetypes.rust").rustfmt },
         css = { prettier },
+        markdown = { prettier },
     },
 })
