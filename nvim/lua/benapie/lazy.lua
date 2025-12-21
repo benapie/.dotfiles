@@ -118,6 +118,14 @@ require("lazy").setup({
         config = function()
             vim.opt.background = "dark"
             vim.cmd.colorscheme("oxocarbon")
+            -- Fix visual selection highlighting for terminal
+            vim.api.nvim_create_autocmd("ColorScheme", {
+                pattern = "*",
+                callback = function()
+                    vim.cmd("highlight Visual ctermfg=white ctermbg=235 guifg=#ffffff guibg=#262626")
+                end,
+            })
+            vim.cmd("highlight Visual ctermfg=white ctermbg=235 guifg=#ffffff guibg=#262626")
         end,
     },
 

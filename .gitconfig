@@ -16,4 +16,20 @@
 [credential]
 	helper = store
 [push]
-	autoSetupRemote = true
+    autoSetupRemote = true
+
+[alias]
+	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+    rb = !"git branch -u origin/mainline && git pull --rebase"
+    ca = "commit --amend --no-edit"
+    clr = !"git branch | grep -v "mainline" | xargs git branch -D"
+    smash = "reset --hard origin/mainline"
+    vomit = "reset --soft HEAD~1"
+    rn = !"git branch -m "
+    edit = !"vim ~/.gitconfig"
+    ls = !"git log --oneline"
+    b = "branch"
+    co = "checkout"
+    home = !"git checkout mainline"
+    cp = !"git cherry-pick"
+
