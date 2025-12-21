@@ -28,6 +28,15 @@ require("formatter").setup({
         yaml = { prettier },
         html = { prettier },
         rust = { require("formatter.filetypes.rust").rustfmt },
+        -- {
+        --     function()
+        --         return {
+        --             exe = "rustfmt",
+        --             args = { "--edition", "2024" },
+        --             stdin = true,
+        --         }
+        --     end,
+        -- },
         css = { prettier },
         markdown = { prettier },
     },

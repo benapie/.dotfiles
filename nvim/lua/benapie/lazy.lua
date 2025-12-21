@@ -53,8 +53,8 @@ require("lazy").setup({
         "VonHeikemen/lsp-zero.nvim",
         branch = "v3.x",
         dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
+            "mason-org/mason.nvim",
+            "mason-org/mason-lspconfig.nvim",
             {
                 "neovim/nvim-lspconfig",
                 version = "*", -- due to eslint bug: https://github.com/LazyVim/LazyVim/issues/3384
@@ -95,15 +95,29 @@ require("lazy").setup({
 
     "tpope/vim-fugitive",
 
-    {
-        "projekt0n/github-nvim-theme",
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
-        config = function()
-            require("github-theme").setup({})
+    --    {
+    --        "projekt0n/github-nvim-theme",
+    --        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    --        priority = 1000, -- make sure to load this before all the other start plugins
+    --        config = function()
+    --            require("github-theme").setup({
+    --                options = {
+    --                    styles = {
+    --                        comments = "italic",
+    --                    },
+    --                },
+    --            })
+    --
+    --            vim.o.background = "dark"
+    --            vim.cmd("colorscheme github_dark_high_contrast")
+    --        end,
+    --    },
 
-            vim.o.background = "dark"
-            vim.cmd("colorscheme github_dark_default")
+    {
+        "nyoom-engineering/oxocarbon.nvim",
+        config = function()
+            vim.opt.background = "dark"
+            vim.cmd.colorscheme("oxocarbon")
         end,
     },
 
@@ -179,4 +193,14 @@ require("lazy").setup({
             })
         end,
     },
+
+    -- {
+    --     url = "ssh://git.amazon.com/pkg/AmazonQNVim",
+    --     config = function()
+    --         local aqnvim = require("amazonq")
+    --         aqnvim.setup({ ssoStartUrl = "https://amzn.awsapps.com/start" })
+    --     end,
+    -- },
+
+    "eandrju/cellular-automaton.nvim",
 })

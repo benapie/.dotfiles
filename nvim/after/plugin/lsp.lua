@@ -60,7 +60,7 @@ local amzn = require("amzn")
 
 require("mason").setup({})
 require("mason-lspconfig").setup({
-    ensure_installed = { "tsserver", "rust_analyzer" },
+    ensure_installed = { "ts_ls", "rust_analyzer" },
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
@@ -70,6 +70,19 @@ require("mason-lspconfig").setup({
         eslint = function()
             require("lspconfig").eslint.setup({
                 settings = amzn.get_eslint_settings(),
+            })
+        end,
+        rust_analyzer = function()
+            require("lspconfig").rust_analyzer.setup({
+                --settings = {
+                --    ["rust-analyzer"] = {
+                --        server = {
+                --            extraEnv = {
+                --                CARGO_TARGET_DIR = ".rust-analyzer/target",
+                --            },
+                --        },
+                --    },
+                --},
             })
         end,
     },

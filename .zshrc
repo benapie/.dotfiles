@@ -1,5 +1,16 @@
+echo -e "\033[34m ██████╗ ███████╗███╗   ██╗ █████╗ ██████╗ ██╗███████╗\033[0m"
+echo -e "\033[34m ██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔══██╗██║██╔════╝\033[0m"
+echo -e "\033[34m ██████╔╝█████╗  ██╔██╗ ██║███████║██████╔╝██║█████╗  \033[0m"
+echo -e "\033[34m ██╔══██╗██╔══╝  ██║╚██╗██║██╔══██║██╔═══╝ ██║██╔══╝  \033[0m"
+echo -e "\033[34m ██████╔╝███████╗██║ ╚████║██║  ██║██║     ██║███████╗\033[0m"
+echo -e "\033[34m ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝\033[0m"
+
+# Initialize Homebrew first
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 autostart_tmux () {
-    if [ -z "$TMUX" ] && [[ "$TERM_PROGRAM" != "vscode" ]]; then
+    #echo $TERMINAL_EMULATOR
+    if [ -z "$TMUX" ] && [[ "$TERM_PROGRAM" != "vscode" ]] && [[ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
         tmux attach -t TMUX || tmux new -s TMUX
     fi
 }
@@ -55,8 +66,10 @@ alias pn="pnpm"
 export BUN_INSTALL="$HOME/.bun"
 path+="$BUN_INSTALL/bin"
 
-
-
 # Append LDFLAGS and CPPFLAGS for multiple tools
 export LDFLAGS="-L/opt/homebrew/opt/ruby/lib -L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/libgit2@1.6/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/ruby/include -I/opt/homebrew/opt/llvm/include -I/opt/homebrew/opt/libgit2@1.6/include"
+
+export EDITOR=nvim
+
+export PRETTIERD_DEFAULT_CONFIG=~/.dotfiles/.prettierrc

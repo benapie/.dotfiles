@@ -24,3 +24,10 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+    command = "checktime",
+})
+
+vim.api.nvim_set_keymap('n', '<F5>', ':checktime<CR>', { noremap = true, silent = true })
