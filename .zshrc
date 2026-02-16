@@ -73,3 +73,4 @@ export CPPFLAGS="-I/opt/homebrew/opt/ruby/include -I/opt/homebrew/opt/llvm/inclu
 export EDITOR=nvim
 
 export PRETTIERD_DEFAULT_CONFIG=~/.dotfiles/.prettierrc
+export PATH="$HOME/.local/bin:$PATH"
